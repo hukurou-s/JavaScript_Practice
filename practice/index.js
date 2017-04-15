@@ -55,6 +55,27 @@ hogeFunc();
 	    
 	}
 
+	// 勝利判定(右斜め)
+	const diagonalRightPieceColor = array[0][0];
+	if ( diagonalRightPieceColor ) {    // 空でないなら
+
+	    for ( var k = 1; k < array.length; k++ ) {
+		if ( array[k][k] !== diagonalRightPieceColor ) { break; }    // 色が同じでなければ次の列へ
+		if ( k === array.length-1 ) { return true; }    // for文が回りきっていたらtrue
+	    }
+	}
+
+	// 勝利判定(左斜め)
+	const diagonalLeftPieceColor = array[0][array.length-1];
+	console.log(diagonalLeftPieceColor);
+	if ( diagonalLeftPieceColor ) {    // 空でないなら
+	    
+	    for ( var k = array.length-2; k >= 0; k-- ) {
+		if ( array[array.length-k-1][k] !== diagonalLeftPieceColor ) { break; }    // 色が同じでなければ次の列へ
+		if ( k === 0 ) { return true; }    // for文が回りきっていたらtrue
+	    }
+	}
+
 	return false;
     };
     
