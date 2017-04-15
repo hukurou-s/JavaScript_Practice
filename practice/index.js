@@ -42,6 +42,18 @@ hogeFunc();
 	    }
 	    
 	}
+	// 勝利判定(縦)
+	for ( var i = 0; i < array[0].length; i++ ) {    // 列の数だけループ
+	    const verticalPieceColor = array[0][i];
+
+	    if ( !verticalPieceColor ) { continue; }    // 空なら次の列へ
+	    
+	    for ( var j = 1; j < array.length; j++ ) {
+		if ( array[j][i] !== verticalPieceColor ) { break; }    // 色が同じでなければ次の列へ
+		if ( j === array.length-1 ) { return true; }    // for文が回りきっていたらtrue
+	    }
+	    
+	}
 
 	return false;
     };
